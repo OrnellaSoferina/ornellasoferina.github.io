@@ -341,59 +341,29 @@ h2{
   max-width: 52ch;
 }
 
-/* Feature cards */
-.feature-card{
+/* FEATURE CARDS WITH ICONS */
+.card.feature{
   position: relative;
   overflow: hidden;
-  padding: 22px;
-  transition: transform .16s ease, box-shadow .16s ease;
-}
-
-.feature-card::before{
-  content:"";
-  position:absolute;
-  inset: 0;
-  background:
-    radial-gradient(520px 220px at 18% 20%, rgba(201,162,74,.14), transparent 60%),
-    radial-gradient(520px 220px at 86% 12%, rgba(90,43,214,.10), transparent 60%);
-  opacity: .0;
-  transition: opacity .16s ease;
-  pointer-events:none;
-}
-
-.feature-card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 24px 60px rgba(11,20,55,.12);
-}
-
-.feature-card:hover::before{
-  opacity: 1;
-}
-
-.feature-top{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom: 8px;
 }
 
 .feature-icon{
-  width: 34px;
-  height: 34px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(201,162,74,.18), rgba(90,43,214,.14));
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(201,162,74,.22), rgba(90,43,214,.12));
   border: 1px solid rgba(11,20,55,.10);
-  color: var(--ink);
-  font-size: 15px;
+  box-shadow: 0 14px 30px rgba(11,20,55,.10);
 }
 
-.feature-card p{
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: rgba(11,20,55,.72);
+.feature-icon img{
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  opacity: .92;
 }
 
 /* Desktop: make the features grid look premium */
