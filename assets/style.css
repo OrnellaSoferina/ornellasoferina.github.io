@@ -12,6 +12,12 @@
   --border:rgba(11,20,55,.12);
   --shadow:0 18px 50px rgba(11,20,55,.08);
   --radius:22px;
+
+  /* Luxe helpers */
+  --glass: rgba(255,255,255,.78);
+  --glass-strong: rgba(255,255,255,.88);
+  --ring: 0 0 0 4px rgba(90,43,214,.14);
+  --gold-edge: rgba(201,162,74,.35);
 }
 
 *{box-sizing:border-box}
@@ -24,6 +30,7 @@ body{
 }
 
 a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
 .wrapper{
   width:min(1080px,92vw);
@@ -31,12 +38,15 @@ a{color:inherit;text-decoration:none}
   margin:0 auto;
 }
 
+/* ===================================== */
+/* HEADER + NAV (LUXE PILLS) */
+/* ===================================== */
 .site-header{
   position:sticky;
   top:0;
   z-index:50;
   background:rgba(255,255,255,.86);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
 }
 
@@ -57,10 +67,11 @@ a{color:inherit;text-decoration:none}
 }
 
 .brand-icon{
-  width:22px;
-  height:22px;
-  border-radius:6px;
+  width:34px;
+  height:34px;
+  border-radius:10px;
   object-fit:contain;
+  filter: drop-shadow(0 10px 18px rgba(11,20,55,.12));
 }
 
 .nav-links{
@@ -69,31 +80,48 @@ a{color:inherit;text-decoration:none}
   flex-wrap:wrap;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size:14px;
-  color:rgba(11,20,55,.78);
-}
-.nav-links a{
-  padding:8px 10px;
-  border-radius:999px;
-}
-.nav-links a:hover{
-  background:rgba(90,43,214,.08);
-  color:var(--ink);
+  color:rgba(11,20,55,.80);
 }
 
+.nav-links a{
+  padding:10px 12px;
+  border-radius:999px;
+  background: var(--glass);
+  border: 1px solid rgba(11,20,55,.10);
+  box-shadow: 0 10px 26px rgba(11,20,55,.06);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+  white-space:nowrap;
+}
+
+.nav-links a:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.92);
+  border-color: var(--gold-edge);
+  box-shadow: 0 14px 34px rgba(11,20,55,.10);
+}
+
+.nav-links a:focus-visible{
+  outline:none;
+  box-shadow: var(--ring), 0 14px 34px rgba(11,20,55,.10);
+}
+
+/* ===================================== */
 /* HERO */
+/* ===================================== */
 .hero{
   position:relative;
   padding:72px 0 44px;
   overflow:hidden;
 }
+
 .hero::before{
   content:"";
   position:absolute;
   inset:-40px -40px auto -40px;
-  height:440px;
+  height:460px;
   background:
-    radial-gradient(900px 340px at 18% 20%, rgba(201,162,74,.20), transparent 60%),
-    radial-gradient(900px 340px at 72% 28%, rgba(90,43,214,.14), transparent 60%),
+    radial-gradient(900px 340px at 18% 20%, rgba(201,162,74,.22), transparent 60%),
+    radial-gradient(900px 340px at 72% 28%, rgba(90,43,214,.15), transparent 60%),
     radial-gradient(900px 340px at 50% 55%, rgba(31,107,78,.10), transparent 60%);
   pointer-events:none;
 }
@@ -108,7 +136,7 @@ a{color:inherit;text-decoration:none}
 
 .meta{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing:.12em;
+  letter-spacing:.16em;
   text-transform:uppercase;
   font-size:12px;
   color:rgba(11,20,55,.66);
@@ -139,6 +167,9 @@ h1{
   margin-top:22px;
 }
 
+/* ===================================== */
+/* BUTTONS (PRIMARY + LUXE SECONDARY + GHOST) */
+/* ===================================== */
 .button{
   display:inline-flex;
   align-items:center;
@@ -146,11 +177,11 @@ h1{
   gap:.55rem;
   padding: .95rem 1.2rem;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 750;
   letter-spacing: .2px;
   text-decoration:none;
   border: 1px solid rgba(255,255,255,.22);
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, background .15s ease, border-color .15s ease;
   will-change: transform;
 }
 
@@ -159,29 +190,47 @@ h1{
   box-shadow: 0 14px 32px rgba(0,0,0,.18);
 }
 
+.button:focus-visible{
+  outline:none;
+  box-shadow: var(--ring), 0 14px 32px rgba(0,0,0,.18);
+}
+
 .button.primary{
   color: #fff;
   background: linear-gradient(135deg, #1b2a7a 0%, #7b2cff 55%, #d7b15a 120%);
+  border-color: rgba(255,255,255,.18);
 }
 
+/* THIS is your “Buy Volume 1” glow-up */
 .button.secondary{
-  color: #1b2a7a;
-  background: rgba(255,255,255,.86);
-  border: 1px solid rgba(27,42,122,.18);
+  color: #14205a;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.74));
+  border: 1px solid rgba(201,162,74,.42);
+  box-shadow: 0 12px 28px rgba(11,20,55,.10);
+  position: relative;
+}
+
+.button.secondary:hover{
+  border-color: rgba(201,162,74,.62);
+  box-shadow: 0 18px 40px rgba(11,20,55,.14);
 }
 
 .button.ghost{
-  color: #7b2cff;
-  background: transparent;
-  border: 1px solid rgba(123,44,255,.28);
+  color: #5a2bd6;
+  background: rgba(90,43,214,.04);
+  border: 1px solid rgba(123,44,255,.26);
+  box-shadow: 0 12px 26px rgba(11,20,55,.06);
 }
 .button.ghost:hover{
-  box-shadow: 0 14px 32px rgba(0,0,0,.12);
+  background: rgba(90,43,214,.07);
+  box-shadow: 0 18px 40px rgba(11,20,55,.12);
 }
 
+/* ===================================== */
 /* SECTIONS + CARDS */
+/* ===================================== */
 .section{ padding:34px 0 56px; }
-.section.light{ background:linear-gradient(180deg, rgba(201,162,74,.08), transparent 55%); }
 
 .card{
   background:var(--card);
@@ -206,23 +255,30 @@ h2{
   margin: 0 0 12px;
   letter-spacing: -.01em;
 }
-
 h3{ margin:0 0 8px; }
 
-/* Footer */
-.site-footer{
-  border-top:1px solid var(--border);
-  padding:26px 0;
-  color:rgba(11,20,55,.60);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:13px;
+/* ===================================== */
+/* GOLD RIBBON DIVIDER */
+/* Put this between sections: <div class="ribbon-divider"></div> */
+/* ===================================== */
+.ribbon-divider{
+  margin: 22px auto 10px;
+  width: min(520px, 86vw);
+  height: 56px;
+  background-image: url("assets/gold-ribbon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .95;
+  filter: drop-shadow(0 14px 24px rgba(11,20,55,.12));
+  pointer-events:none;
 }
 
-/* ============================= */
+/* ===================================== */
 /* PREMIUM STATEMENT SECTION */
-/* ============================= */
+/* ===================================== */
 .section.statement{
-  padding: 54px 0 70px;
+  padding: 54px 0 58px;
   position: relative;
   overflow: hidden;
 }
@@ -240,7 +296,7 @@ h3{ margin:0 0 8px; }
 
 .statement-card{
   position: relative;
-  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.78));
   border: 1px solid rgba(11,20,55,.10);
   border-radius: 28px;
   padding: 34px;
@@ -249,7 +305,7 @@ h3{ margin:0 0 8px; }
 
 .kicker{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: .16em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   font-size: 12px;
   color: rgba(11,20,55,.60);
@@ -285,15 +341,16 @@ h3{ margin:0 0 8px; }
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid rgba(11,20,55,.12);
-  background: rgba(255,255,255,.70);
+  background: rgba(255,255,255,.74);
   box-shadow: 0 14px 30px rgba(11,20,55,.06);
 }
 
-/* ============================= */
+/* ===================================== */
 /* FEATURES GRID + ICONS */
-/* ============================= */
+/* ===================================== */
 .section.features{
   padding: 56px 0 76px;
+  position: relative;
 }
 
 .section-head{
@@ -311,7 +368,7 @@ h3{ margin:0 0 8px; }
   max-width: 52ch;
 }
 
-/* The actual grid wrapper */
+/* Grid wrapper used in index.html: <div class="features-grid"> ...cards... </div> */
 .features-grid{
   display: grid;
   gap: 16px;
@@ -319,42 +376,72 @@ h3{ margin:0 0 8px; }
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* The card */
 .card.feature{
   position: relative;
   overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.card.feature:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 54px rgba(11,20,55,.12);
+  border-color: rgba(201,162,74,.32);
 }
 
 .feature-icon{
-  width: 80px;
-  height: 80px;
-  border-radius: 18px;
+  width: 86px;
+  height: 86px;
+  border-radius: 20px;
   display: grid;
   place-items: center;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, rgba(201,162,74,.22), rgba(90,43,214,.12));
+  background: linear-gradient(135deg, rgba(201,162,74,.20), rgba(90,43,214,.12));
   border: 1px solid rgba(11,20,55,.10);
   box-shadow: 0 14px 30px rgba(11,20,55,.10);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .feature-icon img{
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
-  opacity: .92;
+  opacity: .94;
   filter: contrast(1.05);
 }
 
-/* Hover = luxe */
 .card.feature:hover .feature-icon{
   transform: translateY(-2px);
   box-shadow: 0 18px 38px rgba(11,20,55,.14);
 }
 
-/* ============================= */
+/* ===================================== */
+/* FOOTER + OLIVE BRANCH ORNAMENT */
+/* Add in footer HTML: <div class="footer-ornament"></div> */
+/* ===================================== */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:30px 0 28px;
+  color:rgba(11,20,55,.60);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:13px;
+}
+
+.footer-ornament{
+  width: min(520px, 86vw);
+  height: 54px;
+  margin: 0 auto 14px;
+  background-image: url("assets/olive-branch.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .70;
+  filter: drop-shadow(0 14px 24px rgba(11,20,55,.10));
+  pointer-events:none;
+}
+
+/* ===================================== */
 /* RESPONSIVE */
-/* ============================= */
+/* ===================================== */
 @media (max-width: 900px){
   .hero-grid{ grid-template-columns:1fr; }
 
@@ -366,18 +453,18 @@ h3{ margin:0 0 8px; }
   }
 
   .brand{ font-size: 18px; }
+  .brand-icon{ width:40px; height:40px; border-radius:12px; }
 
   .nav-links{
     width: 100%;
     gap: 8px;
     overflow-x: auto;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
   }
 
   .nav-links a{
-    background: rgba(11,20,55,.04);
-    border: 1px solid rgba(11,20,55,.08);
+    padding: 10px 12px;
   }
 
   .hero{ padding: 52px 0 28px; }
@@ -397,7 +484,7 @@ h3{ margin:0 0 8px; }
 
   .button{
     width: 100%;
-    padding: 1rem 1.15rem;
+    padding: 1.05rem 1.15rem;
     font-size: 15.5px;
     box-shadow: 0 10px 24px rgba(11,20,55,.10);
   }
@@ -409,6 +496,11 @@ h3{ margin:0 0 8px; }
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .ribbon-divider{
+    height: 46px;
+    margin: 18px auto 6px;
+  }
 }
 
 @media (min-width: 901px){
@@ -418,7 +510,7 @@ h3{ margin:0 0 8px; }
   .card{ padding: 26px; }
   .section .wrapper{ max-width: 980px; }
 
-  /* 4-up grid on desktop */
+  /* desktop features grid */
   .features-grid{
     grid-template-columns: repeat(4, 1fr);
   }
