@@ -203,17 +203,16 @@ h1{
 
 /* THIS is your “Buy Volume 1” glow-up */
 .button.secondary{
-  color: #14205a;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.74));
-  border: 1px solid rgba(201,162,74,.42);
-  box-shadow: 0 12px 28px rgba(11,20,55,.10);
-  position: relative;
+  color: var(--ink);
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.78));
+  border: 1px solid rgba(201,162,74,.45);
+  box-shadow: 0 12px 26px rgba(11,20,55,.10);
 }
 
 .button.secondary:hover{
-  border-color: rgba(201,162,74,.62);
-  box-shadow: 0 18px 40px rgba(11,20,55,.14);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(11,20,55,.14);
+  border-color: rgba(201,162,74,.75);
 }
 
 .button.ghost{
