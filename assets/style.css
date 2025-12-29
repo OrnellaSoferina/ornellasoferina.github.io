@@ -203,16 +203,21 @@ h1{
 
 /* THIS is your “Buy Volume 1” glow-up */
 .button.secondary{
-  color: var(--ink);
-  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.78));
-  border: 1px solid rgba(201,162,74,.45);
-  box-shadow: 0 12px 26px rgba(11,20,55,.10);
+  position: relative;
+  overflow: hidden;
 }
 
-.button.secondary:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 18px 38px rgba(11,20,55,.14);
-  border-color: rgba(201,162,74,.75);
+.button.secondary::after{
+  content:"";
+  position:absolute;
+  inset:-40% -30%;
+  background: linear-gradient(120deg, transparent 35%, rgba(201,162,74,.22), transparent 65%);
+  transform: translateX(-40%);
+  transition: transform .55s ease;
+}
+
+.button.secondary:hover::after{
+  transform: translateX(30%);
 }
 
 .button.ghost{
@@ -413,30 +418,34 @@ h3{ margin:0 0 8px; }
   box-shadow: 0 18px 38px rgba(11,20,55,.14);
 }
 
-/* ===================================== */
-/* FOOTER + OLIVE BRANCH ORNAMENT */
-/* Add in footer HTML: <div class="footer-ornament"></div> */
-/* ===================================== */
-.site-footer{
-  border-top:1px solid var(--border);
-  padding:30px 0 28px;
-  color:rgba(11,20,55,.60);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:13px;
+/* ============================= */
+/* ORNAMENTS: RIBBON + OLIVE */
+/* ============================= */
+
+.ribbon-divider{
+  width: min(720px, 86vw);
+  height: 64px;
+  margin: 10px auto 22px;
+  background: url("gold-ribbon.png") center / contain no-repeat;
+  opacity: .95;
+  filter: drop-shadow(0 18px 35px rgba(11,20,55,.12));
 }
 
 .footer-ornament{
-  width: min(520px, 86vw);
-  height: 54px;
-  margin: 0 auto 14px;
-  background-image: url("assets/olive-branch.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: .70;
-  filter: drop-shadow(0 14px 24px rgba(11,20,55,.10));
-  pointer-events:none;
+  width: min(520px, 84vw);
+  height: 110px;
+  margin: 6px auto 12px;
+  background: url("olive-branch.png") center / contain no-repeat;
+  opacity: .95;
+  filter: drop-shadow(0 14px 28px rgba(11,20,55,.10));
 }
+
+/* Mobile sizing tweak */
+@media (max-width: 900px){
+  .ribbon-divider{ height: 54px; margin: 6px auto 18px; }
+  .footer-ornament{ height: 96px; margin: 2px auto 10px; }
+}
+
 
 /* ===================================== */
 /* RESPONSIVE */
