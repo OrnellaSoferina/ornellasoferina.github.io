@@ -49,11 +49,6 @@ a{color:inherit;text-decoration:none}
 }
 
 .brand{
-  font-weight:750;
-  letter-spacing:.02em;
-}
-
-.brand{
   display:flex;
   align-items:center;
   gap:10px;
@@ -184,7 +179,7 @@ h1{
   box-shadow: 0 14px 32px rgba(0,0,0,.12);
 }
 
-/* CARDS + SECTIONS */
+/* SECTIONS + CARDS */
 .section{ padding:34px 0 56px; }
 .section.light{ background:linear-gradient(180deg, rgba(201,162,74,.08), transparent 55%); }
 
@@ -204,21 +199,17 @@ h1{
   box-shadow:0 16px 40px rgba(11,20,55,.10);
 }
 
+/* Branded H2 */
 h2{
-  font-size:28px;
-  margin:0 0 12px;
+  font-size: clamp(28px, 2.6vw, 40px);
+  line-height: 1.12;
+  margin: 0 0 12px;
+  letter-spacing: -.01em;
 }
+
 h3{ margin:0 0 8px; }
 
-.card-grid{
-  display:grid;
-  gap:16px;
-  margin-top:16px;
-}
-.card-grid.three{
-  grid-template-columns:repeat(3,1fr);
-}
-
+/* Footer */
 .site-footer{
   border-top:1px solid var(--border);
   padding:26px 0;
@@ -227,30 +218,9 @@ h3{ margin:0 0 8px; }
   font-size:13px;
 }
 
-@media (max-width: 900px){
-  .hero-grid{ grid-template-columns:1fr; }
-  .card-grid.three{ grid-template-columns:1fr; }
-}
-/* Desktop polish */
-@media (min-width: 901px){
-  .hero-grid{ gap: 48px; }
-  .hero p{ font-size: 19px; }
-  .card img{ max-height: 520px; object-fit: contain; }
-  .card{ padding: 26px; }
-  .section .wrapper{ max-width: 980px; }
-}
-
-/* === PREMIUM SECTION UPGRADE === */
-
-/* Headings: make H2 more branded */
-h2{
-  font-size: clamp(28px, 2.6vw, 40px);
-  line-height: 1.12;
-  margin: 0 0 12px;
-  letter-spacing: -.01em;
-}
-
-/* Statement block (replaces bland one-liner/promise) */
+/* ============================= */
+/* PREMIUM STATEMENT SECTION */
+/* ============================= */
 .section.statement{
   padding: 54px 0 70px;
   position: relative;
@@ -302,7 +272,6 @@ h2{
   max-width: 70ch;
 }
 
-/* Pills row */
 .pill-row{
   display:flex;
   flex-wrap:wrap;
@@ -320,10 +289,11 @@ h2{
   box-shadow: 0 14px 30px rgba(11,20,55,.06);
 }
 
-/* Features section polish */
+/* ============================= */
+/* FEATURES GRID + ICONS */
+/* ============================= */
 .section.features{
   padding: 56px 0 76px;
-  position: relative;
 }
 
 .section-head{
@@ -341,13 +311,7 @@ h2{
   max-width: 52ch;
 }
 
-/* FEATURE CARDS WITH ICONS */
-.card.feature{
-  position: relative;
-  overflow: hidden;
-}
-
-/* FEATURES GRID LAYOUT */
+/* The actual grid wrapper */
 .features-grid{
   display: grid;
   gap: 16px;
@@ -355,58 +319,45 @@ h2{
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* Icon image polish */
-.feature-icon img{
-  filter: contrast(1.05);
-}
-
-/* Desktop upgrade */
-@media (min-width: 901px){
-  .features-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* The card */
+.card.feature{
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-icon{
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
   display: grid;
   place-items: center;
   margin-bottom: 16px;
   background: linear-gradient(135deg, rgba(201,162,74,.22), rgba(90,43,214,.12));
   border: 1px solid rgba(11,20,55,.10);
   box-shadow: 0 14px 30px rgba(11,20,55,.10);
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .feature-icon img{
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   opacity: .92;
+  filter: contrast(1.05);
 }
 
-/* Desktop: make the features grid look premium */
-@media (min-width: 901px){
-  .features-grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .features-grid .feature-card:nth-child(4),
-  .features-grid .feature-card:nth-child(5){
-    grid-column: span 1;
-  }
+/* Hover = luxe */
+.card.feature:hover .feature-icon{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(11,20,55,.14);
 }
 
-/* Mobile: keep section head stacked */
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
 @media (max-width: 900px){
-  .section-head{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+  .hero-grid{ grid-template-columns:1fr; }
 
-/* MOBILE LUXE POLISH */
-@media (max-width: 900px){
   .nav{
     padding: 14px 0;
     gap: 10px;
@@ -414,9 +365,7 @@ h2{
     align-items: flex-start;
   }
 
-  .brand{
-    font-size: 18px;
-  }
+  .brand{ font-size: 18px; }
 
   .nav-links{
     width: 100%;
@@ -431,13 +380,9 @@ h2{
     border: 1px solid rgba(11,20,55,.08);
   }
 
-  .hero{
-    padding: 52px 0 28px;
-  }
+  .hero{ padding: 52px 0 28px; }
 
-  h1{
-    font-size: clamp(34px, 9vw, 46px);
-  }
+  h1{ font-size: clamp(34px, 9vw, 46px); }
 
   .hero p{
     font-size: 16.5px;
@@ -457,15 +402,24 @@ h2{
     box-shadow: 0 10px 24px rgba(11,20,55,.10);
   }
 
-  .card{
-    padding: 18px;
-  }
+  .card{ padding: 18px; }
+  .section{ padding: 26px 0 42px; }
 
-  .section{
-    padding: 26px 0 42px;
+  .section-head{
+    flex-direction: column;
+    align-items: flex-start;
   }
+}
 
-  h2{
-    font-size: 24px;
+@media (min-width: 901px){
+  .hero-grid{ gap: 48px; }
+  .hero p{ font-size: 19px; }
+  .card img{ max-height: 520px; object-fit: contain; }
+  .card{ padding: 26px; }
+  .section .wrapper{ max-width: 980px; }
+
+  /* 4-up grid on desktop */
+  .features-grid{
+    grid-template-columns: repeat(4, 1fr);
   }
 }
