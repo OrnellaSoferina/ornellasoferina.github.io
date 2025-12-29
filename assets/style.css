@@ -184,6 +184,15 @@ h1{
   border: 1px solid rgba(27,42,122,.18);
 }
 
+.button.ghost{
+  color: #7b2cff;
+  background: transparent;
+  border: 1px solid rgba(123,44,255,.28);
+}
+.button.ghost:hover{
+  box-shadow: 0 14px 32px rgba(0,0,0,.12);
+}
+
 /* CARDS + SECTIONS */
 .section{ padding:34px 0 56px; }
 .section.light{ background:linear-gradient(180deg, rgba(201,162,74,.08), transparent 55%); }
