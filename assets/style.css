@@ -347,6 +347,26 @@ h2{
   overflow: hidden;
 }
 
+/* FEATURES GRID LAYOUT */
+.features-grid{
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Icon image polish */
+.feature-icon img{
+  filter: contrast(1.05);
+}
+
+/* Desktop upgrade */
+@media (min-width: 901px){
+  .features-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .feature-icon{
   width: 54px;
   height: 54px;
