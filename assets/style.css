@@ -209,4 +209,11 @@ h3{ margin:0 0 8px; }
   .hero-grid{ grid-template-columns:1fr; }
   .card-grid.three{ grid-template-columns:1fr; }
 }
-
+/* Desktop polish */
+@media (min-width: 901px){
+  .hero-grid{ gap: 48px; }
+  .hero p{ font-size: 19px; }
+  .card img{ max-height: 520px; object-fit: contain; }
+  .card{ padding: 26px; }
+  .section .wrapper{ max-width: 980px; }
+}
