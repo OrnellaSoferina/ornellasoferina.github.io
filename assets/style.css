@@ -461,7 +461,7 @@ h3{ margin:0 0 8px; }
   content:"";
   position: absolute;
   inset: 0;
-  background: url("assets/olive-branch.PNG") no-repeat;
+  background: url("olive-branch.png") no-repeat;
   background-position: right -40px center; 
   background-size: min(520px, 78vw);
   opacity: .18;
