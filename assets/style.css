@@ -449,34 +449,33 @@ h3{ margin:0 0 8px; }
   color: rgba(11,20,55,.60);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size: 13px;
-  overflow: hidden; /* keeps it clean on mobile */
+  overflow: hidden;
 }
 
 .site-footer .wrapper{
   position: relative;
-  z-index: 2; /* text stays above the olive */
+  z-index: 2;
 }
 
 .site-footer::before{
   content:"";
   position: absolute;
   inset: 0;
-  background: url("assets/olive-branch.png") no-repeat;
-  background-position: right -40px center; /* pushes it slightly off-canvas for a luxe crop */
+  background: url("assets/olive-branch.PNG") no-repeat;
+  background-position: right -40px center; 
   background-size: min(520px, 78vw);
-  opacity: .14; /* subtle */
+  opacity: .18;
   filter: blur(.2px);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Mobile tuning so it doesn't look huge/weird */
 @media (max-width: 900px){
   .site-footer{
     padding: 28px 0;
   }
   .site-footer::before{
-    background-position: right -120px center; /* more off-canvas on small screens */
+    background-position: right -120px center;
     background-size: min(460px, 92vw);
     opacity: .18;
   }
