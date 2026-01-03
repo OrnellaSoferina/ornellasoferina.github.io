@@ -624,16 +624,3 @@ h3{ margin:0 0 8px; }
 .book-actions{
   margin-top: 16px;
 }
-
-/* Desktop: two books side-by-side, each with cover + text */
-@media (min-width: 901px){
-  .book-grid{
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-  }
-
-  .book-card{
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 22px;
-  }
-}
