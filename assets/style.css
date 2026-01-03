@@ -630,8 +630,8 @@ h3{ margin:0 0 8px; }
     gap: 22px;
   }
 
-  .book-card{
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 22px;
+  .book-card {
+    /* allocate ~60 % of the card width to the image */
+    grid-template-columns: 1.3fr 0.7fr;
   }
 }
