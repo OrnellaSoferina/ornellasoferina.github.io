@@ -287,24 +287,6 @@ h3{ margin:0 0 8px; }
 .gold-line{
   width: 100vw;
   margin: 32px 0 22px;
-
-/* ===================================== */
-/* SECTIONS */
-/* ===================================== */
-.section{ padding:44px 0 66px; }
-
-h2{
-  font-size: clamp(28px, 2.6vw, 40px);
-  line-height: 1.12;
-  margin: 0 0 12px;
-  letter-spacing: -.01em;
-}
-h3{ margin:0 0 8px; }
-
-/* Luxe line divider */
-.gold-line{
-  width: 100vw;
-  margin: 32px 0 22px;
   height: 1px;
   background: linear-gradient(90deg,
     transparent,
@@ -569,6 +551,24 @@ h3{ margin:0 0 8px; }
 
 @media (min-width: 901px){
   .features-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* allows cover to feel big without looking awkward */
+  .hero-grid{
+    gap: 54px;
+  }
+}
+
+/* ===================================== */
+/* BOOKS PAGE (make covers BIG + grid)   */
+/* ===================================== */
+
+.section.light{
+  background: linear-gradient(180deg, rgba(201,162,74,.08), transparent 55%);
+}
+
+.book-grid{
   display: grid;
   gap: 18px;
   grid-template-columns: 1fr;
@@ -597,8 +597,6 @@ h3{ margin:0 0 8px; }
   /* THIS is the magic for “too small / weird padding PNGs” */
   aspect-ratio: 2 / 3;
   object-fit: cover;
-  /* Let covers keep their natural orientation and fill the card */
-  object-fit: contain;
 }
 
 .book-title{
@@ -623,4 +621,17 @@ h3{ margin:0 0 8px; }
 
 .book-actions{
   margin-top: 16px;
+}
+
+/* Desktop: two books side-by-side, each with cover + text */
+@media (min-width: 901px){
+  .book-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .book-card{
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 22px;
+  }
 }
