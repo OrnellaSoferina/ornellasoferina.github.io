@@ -287,24 +287,6 @@ h3{ margin:0 0 8px; }
 .gold-line{
   width: 100vw;
   margin: 32px 0 22px;
-
-/* ===================================== */
-/* SECTIONS */
-/* ===================================== */
-.section{ padding:44px 0 66px; }
-
-h2{
-  font-size: clamp(28px, 2.6vw, 40px);
-  line-height: 1.12;
-  margin: 0 0 12px;
-  letter-spacing: -.01em;
-}
-h3{ margin:0 0 8px; }
-
-/* Luxe line divider */
-.gold-line{
-  width: 100vw;
-  margin: 32px 0 22px;
   height: 1px;
   background: linear-gradient(90deg,
     transparent,
@@ -569,58 +551,11 @@ h3{ margin:0 0 8px; }
 
 @media (min-width: 901px){
   .features-grid{
-  display: grid;
-  gap: 18px;
-  grid-template-columns: 1fr;
-}
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.book-card{
-  display: grid;
-  gap: 18px;
-  align-items: center;
-}
-
-/* Big, clean cover with “real book” proportions */
-.book-cover{
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 18px 55px rgba(11,20,55,.14);
-  border: 1px solid rgba(11,20,55,.10);
-  background: rgba(255,255,255,.60);
-}
-
-.book-cover img{
-  width: 100%;
-  height: auto;
-  display: block;
-
-  /* THIS is the magic for “too small / weird padding PNGs” */
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  /* Let covers keep their natural orientation and fill the card */
-  object-fit: contain;
-}
-
-.book-title{
-  margin: 0 0 8px;
-}
-
-.book-kicker{
-  margin: 0 0 10px;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: rgba(11,20,55,.62);
-}
-
-.book-summary{
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: rgba(11,20,55,.74);
-  line-height: 1.65;
-}
-
-.book-actions{
-  margin-top: 16px;
+  /* allows cover to feel big without looking awkward */
+  .hero-grid{
+    gap: 54px;
+  }
 }
